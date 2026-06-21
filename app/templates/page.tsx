@@ -43,6 +43,13 @@ const DEMO_INVITATION: Invitation = {
   openingEffect: "hearts", openingFormat: "letter",
 };
 
+const previewKeys: (keyof typeof TRANSLATIONS.english)[] = [
+  "togetherWithFamilies",
+  "weddingCeremony",
+  "ourStory",
+  "kindlyRsvp",
+];
+
 export default function TemplatesPage() {
   const [activeId,   setActiveId]   = useState("template1");
   const [activeLang, setActiveLang] = useState<SupportedLang>("english");
@@ -132,9 +139,16 @@ export default function TemplatesPage() {
           {/* Live preview of selected language labels */}
           {activeLang !== "english" && (
             <div style={{ display: "flex", gap: 16, paddingBottom: 12, flexWrap: "wrap" }}>
-              {["togetherWithFamilies", "weddingCeremony", "ourStory", "kindlyRsvp"].map(key => (
-                <span key={key} style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", fontStyle: "italic" }}>
-                  "{(TRANSLATIONS[activeLang] as Record<string, string>)[key]}"
+              {previewKeys.map((key) => (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: 11,
+                    color: "rgba(255,255,255,0.3)",
+                    fontStyle: "italic",
+                  }}
+                >
+                  "{TRANSLATIONS[activeLang][key]}"
                 </span>
               ))}
             </div>
