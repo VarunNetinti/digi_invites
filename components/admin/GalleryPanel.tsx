@@ -6,25 +6,30 @@ interface SectionGallery {
   style: GalleryStyle;
   fillet: Fillet;
 }
-
 interface GalleryPanelProps {
-  // global fallback
   selected: GalleryStyle;
   onSelect: (s: GalleryStyle) => void;
+
   selectedFillet?: Fillet;
   onSelectFillet?: (f: Fillet) => void;
-  // per-section
-  hero?:        SectionGallery;
-  onHero?:      (v: SectionGallery) => void;
-  story?:       SectionGallery;
-  onStory?:     (v: SectionGallery) => void;
+
+  hero?: SectionGallery;
+  onHero?: (v: SectionGallery) => void;
+
+  story?: SectionGallery;
+  onStory?: (v: SectionGallery) => void;
+
   brideFamily?: SectionGallery;
   onBrideFamily?(v: SectionGallery): void;
+
   groomFamily?: SectionGallery;
   onGroomFamily?(v: SectionGallery): void;
-  accentColor?: string;
-}
 
+  accentColor?: string;
+
+  // ADD THIS
+  sampleImages?: string[];
+}
 // ─── All 16 styles ────────────────────────────────────────────────────────
 const STYLES: { id: GalleryStyle; label: string; emoji: string; desc: string; tag?: string }[] = [
   // Slideshow group
