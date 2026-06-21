@@ -110,7 +110,7 @@ interface QuickToolbarProps {
 type DropKey = "template" | "color" | "font" | "effect" | "format" | "gallery" | null;
 
 /* ── Shared dropdown wrapper ─────────────────────────────────────── */
-function Dropdown({ open, children }: { open: boolean; children: React.ReactNode }) {
+function Dropdown({ open, children }: { open: boolean; children?: React.ReactNode }) {
   return (
     <div style={{
       position: "absolute", top: "calc(100% + 8px)", left: 0, zIndex: 300,
@@ -364,7 +364,7 @@ export default function QuickToolbar({
               {FORMATS.map(fmt => {
                 const isSel = (selectedFormat || "letter") === fmt.id;
                 return (
-                  <button key={fmt.id} type="button" onClick={() => { onSelectFormat(fmt.id); setOpen(null); }}
+                  <button key={fmt.id} type="button" onClick={() => { onSelectFormat?.(fmt.id); setOpen(null); }}
                     style={{ display:"grid", gridTemplateColumns:"36px 1fr 18px", alignItems:"center", gap:10, padding:"10px 12px", borderRadius:8, cursor:"pointer", textAlign:"left", background: isSel ? `${gold}14` : "transparent", border: isSel ? `1px solid ${gold}33` : "1px solid transparent", transitionProperty: "all", transitionDuration: "0.15s", transitionTimingFunction: "ease" }}
                     onMouseEnter={e=>{ if(!isSel)(e.currentTarget.style.background="rgba(255,255,255,0.04)"); }}
                     onMouseLeave={e=>{ if(!isSel)(e.currentTarget.style.background="transparent"); }}>
