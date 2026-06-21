@@ -11,7 +11,10 @@ declare global {
   // eslint-disable-next-line no-var
   var _mongooseConn: mongoose.Connection | null | undefined;
   // eslint-disable-next-line no-var
-  var _mongoosePromise: Promise<mongoose.Connection | null> | undefined;
+  var _mongoosePromise:
+  | Promise<mongoose.Connection | null>
+  | null
+  | undefined;
 }
 
 let cached = global._mongooseConn ?? null;
