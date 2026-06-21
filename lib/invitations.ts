@@ -19,21 +19,32 @@ export async function getAllInvitations(): Promise<Invitation[]> {
 /** Backfill new fields so old invitations don't crash templates */
 function normaliseInvitation(inv: Invitation): Invitation {
   return {
-    events: [],
-    coupleHashtag: "",
-    rsvpWhatsapp: "",
-    venueMapUrl: "",
-    backgroundMusicUrl: "",
-    specialNote: "",
-    brideAbout: "",
-    groomAbout: "",
-    heroImageUrls: [],
-    storyImageUrls: [],
-    brideFamilyImageUrls: [],
-    groomFamilyImageUrls: [],
     ...inv,
-    brideFamily: { fatherName: "", motherName: "", members: [], ...inv.brideFamily },
-    groomFamily: { fatherName: "", motherName: "", members: [], ...inv.groomFamily },
+
+    events: inv.events ?? [],
+    coupleHashtag: inv.coupleHashtag ?? "",
+    rsvpWhatsapp: inv.rsvpWhatsapp ?? "",
+    venueMapUrl: inv.venueMapUrl ?? "",
+    backgroundMusicUrl: inv.backgroundMusicUrl ?? "",
+    specialNote: inv.specialNote ?? "",
+    brideAbout: inv.brideAbout ?? "",
+    groomAbout: inv.groomAbout ?? "",
+    heroImageUrls: inv.heroImageUrls ?? [],
+    storyImageUrls: inv.storyImageUrls ?? [],
+    brideFamilyImageUrls: inv.brideFamilyImageUrls ?? [],
+    groomFamilyImageUrls: inv.groomFamilyImageUrls ?? [],
+
+    brideFamily: {
+      fatherName: inv.brideFamily?.fatherName ?? "",
+      motherName: inv.brideFamily?.motherName ?? "",
+      members: inv.brideFamily?.members ?? [],
+    },
+
+    groomFamily: {
+      fatherName: inv.groomFamily?.fatherName ?? "",
+      motherName: inv.groomFamily?.motherName ?? "",
+      members: inv.groomFamily?.members ?? [],
+    },
   };
 }
 

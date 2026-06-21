@@ -8,7 +8,7 @@ import { useEffect, useRef, RefObject } from "react";
 export function useReveal<T extends HTMLElement>(
   threshold = 0.12,
   rootMargin = "0px 0px -40px 0px"
-): RefObject<T> {
+): RefObject<T | null> {
   const ref = useRef<T>(null);
 
   useEffect(() => {
