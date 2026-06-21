@@ -220,7 +220,7 @@ export default function Template2({ invitation, isPreview }: TemplateProps) {
             <p style={{ color: pink, fontSize: 9, letterSpacing: ls("0.4em"), textTransform: tt("uppercase") as any, fontFamily: "'Montserrat',sans-serif", marginBottom: isPreview ? 12 : 20 }}>Our Love Story</p>
             {storyImageUrls.length > 0 && (
               <div style={{ borderRadius: 16, overflow: "hidden", marginBottom: isPreview ? 14 : 24, boxShadow: "0 8px 32px rgba(193,123,123,0.2)" }}>
-                <PhotoGallery images={storyImageUrls} style={sGS} fillet={sGF} accentColor={accentColor || invAccent || "#c9a84c"} isPreview={isPreview} />
+                <PhotoGallery images={storyImageUrls} style={sGS} fillet={sGF} accentColor={ invAccent || "#c9a84c"} isPreview={isPreview} />
               </div>
             )}
             {story && (

@@ -239,7 +239,7 @@ export default function Template4({ invitation, isPreview }: TemplateProps) {
             <p style={{ color: "#7a5c2e", fontSize: 8, letterSpacing: ls("0.5em"), textTransform: tt("uppercase") as any, margin: isPreview ? "14px 0 12px" : "24px 0 20px" }}>{t.ourStory}</p>
 {storyImageUrls.length > 0 && (
               <div style={{ borderRadius: 8, overflow: "hidden", marginBottom: isPreview ? 12 : 22 }}>
-                <PhotoGallery images={storyImageUrls} style={sGS} fillet={sGF} accentColor={accentColor || invAccent || "#c9a84c"} isPreview={isPreview} />
+                <PhotoGallery images={storyImageUrls} style={sGS} fillet={sGF} accentColor={invAccent || "#c9a84c"} isPreview={isPreview} />
               </div>
             )}
             {story &&             <p style={{ fontFamily: "'Cormorant Garamond',serif", color: "#5c3d1a", fontStyle: "italic", fontSize: isPreview ? 13 : 20, lineHeight: 1.9 }}>{story}</p>}
