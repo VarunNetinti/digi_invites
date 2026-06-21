@@ -238,7 +238,9 @@ function ButterflyEngine({ color, targets }: { color: string; targets: string[] 
       }
 
       pos = { x, y };
-      wrap.style.transform = `translate(${x}px,${y}px) rotate(${rot}deg)`;
+      if (wrap) {
+  wrap.style.transform = `translate(${x}px,${y}px) rotate(${rot}deg)`;
+}
     }
 
     raf = requestAnimationFrame(tick);
