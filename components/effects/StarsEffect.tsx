@@ -24,7 +24,7 @@ export default function StarsEffect({ accentColor = "#c9a84c", density = 20 }: {
     <>
       {stars.map(s => (
         <div key={s.id} style={{
-          position: pos, left: `${s.x}%`, bottom: -20,
+          position: "fixed", left: `${s.x}%`, bottom: -20,
           fontSize: s.size, color: s.color, userSelect: "none", pointerEvents: "none", zIndex: 998,
           animation: `star-drift ${s.dur}s ease-out ${s.delay}s infinite`,
           textShadow: `0 0 8px ${s.color}`,

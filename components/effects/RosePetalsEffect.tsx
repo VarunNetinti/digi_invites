@@ -22,7 +22,7 @@ export default function RosePetalsEffect({ density = 16 }: { density?: number; i
     <>
       {petals.map(p => (
         <div key={p.id} style={{
-          position: pos, left: `${p.x}%`, top: -20,
+          position: "fixed", left: `${p.x}%`, top: -20,
           fontSize: p.size, userSelect: "none", pointerEvents: "none", zIndex: 998,
           animation: `rose-fall ${p.dur}s linear ${p.delay}s infinite`,
         }}>{p.emoji}</div>

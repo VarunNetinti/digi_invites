@@ -24,7 +24,7 @@ export default function ConfettiEffect({ accentColor = "#c9a84c", density = 24 }
     <>
       {pieces.map(p => (
         <div key={p.id} style={{
-          position: pos, left: `${p.x}%`, top: -10,
+          position: "fixed" , left: `${p.x}%`, top: -10,
           fontSize: p.size, color: p.color, userSelect: "none", pointerEvents: "none", zIndex: 998,
           animation: `confetti-fall ${p.dur}s linear ${p.delay}s infinite`,
         }}>{p.shape}</div>
