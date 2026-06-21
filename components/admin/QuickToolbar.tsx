@@ -80,18 +80,29 @@ const EFFECTS = [
 interface QuickToolbarProps {
   selectedTemplateId: string;
   onSelectTemplate: (id: string) => void;
+
   selectedColor: string;
   onSelectColor: (color: string) => void;
+
   selectedFont: string;
   onSelectFont: (font: string) => void;
+
   selectedEffect: string;
   onSelectEffect: (effect: string) => void;
+
+  // ADD THESE
+  selectedFormat?: string;
+  onSelectFormat?: (format: string) => void;
+
   selectedGalleryStyle?: string;
   onSelectGalleryStyle?: (s: string) => void;
+
   selectedGalleryFillet?: string;
   onSelectGalleryFillet?: (f: string) => void;
+
   previewInvitation: Invitation;
   onHoverTemplate?: (id: string | null) => void;
+
   brideName: string;
   groomName: string;
 }
