@@ -123,6 +123,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     const invitation = await getInvitationById(id);
     if (!invitation) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
+    const inv = invitation;
+
     const { brideName, groomName, slug, templateId } = invitation;
     const safeName = `${brideName}-${groomName}`.replace(/[^a-zA-Z0-9-]/g, "-").toLowerCase();
     const folderName = `invitation-${safeName}`;
