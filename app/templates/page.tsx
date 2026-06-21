@@ -92,7 +92,7 @@ export default function TemplatesPage() {
       <div style={{ paddingTop: 88 }}>
         <div style={{ padding: "20px 32px 0", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div>
-            <p style={{ fontSize: 9, letterSpacing: "0.45em", textTransform: "uppercase", color: "#c9a84c", marginBottom: 4 }}>{TEMPLATE_REGISTRY.length} Premium Designs · 8 Languages</p>
+            <p style={{ fontSize: 9, letterSpacing: "0.45em", textTransform: "uppercase", color: "#c9a84c", marginBottom: 4 }}>Premium Designs · 8 Languages</p>
             <h1 style={{ fontFamily: "'Playfair Display',serif", fontSize: "clamp(22px,3vw,34px)", color: "#fff", margin: 0, fontWeight: 400 }}>Browse All <em>Templates</em></h1>
           </div>
           <Link href="/contact" style={{ padding: "10px 24px", borderRadius: 6, background: "linear-gradient(135deg,#c9a84c,#e8d5a3)", color: "#060410", textDecoration: "none", fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" }}>

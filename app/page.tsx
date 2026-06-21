@@ -466,7 +466,7 @@ export default function HomePage() {
       <section id="templates" style={{ padding: "100px 60px", maxWidth: 1200, margin: "0 auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 56, flexWrap: "wrap", gap: 20 }}>
           <div>
-            <p style={{ fontSize: 10, letterSpacing: "0.45em", textTransform: "uppercase", color: "#c9a84c", marginBottom: 12 }}>15 Premium Designs</p>
+            <p style={{ fontSize: 10, letterSpacing: "0.45em", textTransform: "uppercase", color: "#c9a84c", marginBottom: 12 }}>Premium Designs</p>
             <h2 style={{ fontFamily: "'Playfair Display',serif", fontSize: "clamp(28px,4vw,48px)", color: "#fff", margin: 0, fontWeight: 400 }}>
               Every card tells a<br /><em>different story.</em>
             </h2>
@@ -477,7 +477,7 @@ export default function HomePage() {
         </div>
 
         {/* Tab selector */}
-        <div style={{ display: "flex", gap: 2, marginBottom: 32, overflowX: "auto", paddingBottom: 4 }}>
+        <div style={{ display: "flex", gap: 2,flexWrap: "wrap", marginBottom: 32, paddingBottom: 4 }}>
           {templates.map((t, i) => (
             <button key={i} onClick={() => setActiveTemplate(i)} style={{
               padding: "10px 20px", border: "1px solid", borderRadius: 4, cursor: "pointer", flexShrink: 0,
