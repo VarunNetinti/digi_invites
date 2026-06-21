@@ -4,10 +4,10 @@
  * Only loaded when MongoDB is available.
  */
 
+import { InferSchemaType } from "mongoose";
+
 import mongoose, { Schema, Document, Model } from "mongoose";
 import { Invitation } from "../types";
-
-export type InvitationDocument = Omit<Invitation, "id"> & Document;
 
 const FamilyMemberSchema = new Schema(
   { name: String, relation: String },
@@ -35,7 +35,7 @@ const WeddingEventSchema = new Schema(
   { _id: false }
 );
 
-const InvitationSchema = new Schema<InvitationDocument>(
+const InvitationSchema = new Schema(
   {
     id: { type: String, required: true, unique: true },
     brideName: { type: String, required: true },
@@ -79,6 +79,8 @@ const InvitationSchema = new Schema<InvitationDocument>(
   },
   { timestamps: false }
 );
+
+export type InvitationDocument = InferSchemaType<typeof InvitationSchema>;
 
 // ── Prevent model re-compilation during hot-reload ────────────────────────────
 const InvitationModel: Model<InvitationDocument> =
