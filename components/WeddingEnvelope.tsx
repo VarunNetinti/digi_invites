@@ -1,27 +1,27 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, ComponentType } from "react";
 import dynamic from "next/dynamic";
-import { Invitation } from "@/lib/types";
+import { Invitation, TemplateProps } from "@/lib/types";
 
 const EffectRenderer = dynamic(() => import("@/components/effects/EffectRenderer"), { ssr: false });
 
 // Dynamically load every template — same map as MobilePreview
-const templateComponents: Record<string, ReturnType<typeof dynamic>> = {
-  template1:  dynamic(() => import("./templates/Template1"),  { ssr: false }),
-  template2:  dynamic(() => import("./templates/Template2"),  { ssr: false }),
-  template3:  dynamic(() => import("./templates/Template3"),  { ssr: false }),
-  template4:  dynamic(() => import("./templates/Template4"),  { ssr: false }),
-  template5:  dynamic(() => import("./templates/Template5"),  { ssr: false }),
-  template6:  dynamic(() => import("./templates/Template6"),  { ssr: false }),
-  template7:  dynamic(() => import("./templates/Template7"),  { ssr: false }),
-  template8:  dynamic(() => import("./templates/Template8"),  { ssr: false }),
-  template9:  dynamic(() => import("./templates/Template9"),  { ssr: false }),
-  template10: dynamic(() => import("./templates/Template10"), { ssr: false }),
-  template11: dynamic(() => import("./templates/Template11"), { ssr: false }),
-  template12: dynamic(() => import("./templates/Template12"), { ssr: false }),
-  template13: dynamic(() => import("./templates/Template13"), { ssr: false }),
-  template14: dynamic(() => import("./templates/Template14"), { ssr: false }),
-  template15: dynamic(() => import("./templates/Template15"), { ssr: false }),
+const templateComponents: Record<string, ComponentType<TemplateProps>> = {
+  template1: dynamic<TemplateProps>(() => import("./templates/Template1"), { ssr: false }),
+  template2: dynamic<TemplateProps>(() => import("./templates/Template2"), { ssr: false }),
+  template3: dynamic<TemplateProps>(() => import("./templates/Template3"), { ssr: false }),
+  template4: dynamic<TemplateProps>(() => import("./templates/Template4"), { ssr: false }),
+  template5: dynamic<TemplateProps>(() => import("./templates/Template5"), { ssr: false }),
+  template6: dynamic<TemplateProps>(() => import("./templates/Template6"), { ssr: false }),
+  template7: dynamic<TemplateProps>(() => import("./templates/Template7"), { ssr: false }),
+  template8: dynamic<TemplateProps>(() => import("./templates/Template8"), { ssr: false }),
+  template9: dynamic<TemplateProps>(() => import("./templates/Template9"), { ssr: false }),
+  template10: dynamic<TemplateProps>(() => import("./templates/Template10"), { ssr: false }),
+  template11: dynamic<TemplateProps>(() => import("./templates/Template11"), { ssr: false }),
+  template12: dynamic<TemplateProps>(() => import("./templates/Template12"), { ssr: false }),
+  template13: dynamic<TemplateProps>(() => import("./templates/Template13"), { ssr: false }),
+  template14: dynamic<TemplateProps>(() => import("./templates/Template14"), { ssr: false }),
+  template15: dynamic<TemplateProps>(() => import("./templates/Template15"), { ssr: false }),
 };
 
 interface WeddingEnvelopeProps {
