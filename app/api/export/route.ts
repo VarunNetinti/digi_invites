@@ -195,9 +195,13 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     motherName: ${q(gf.motherName)},
     members: [${(gf.members ?? []).map((m: {name:string;relation:string}) => `{ name: ${q(m.name)}, relation: ${q(m.relation)} }`).join(", ")}],
   };
-  const events = [${(inv.events ?? []).map((e: {name:string;date:string;time:string;venue:string;venueAddress:string}) =>
-    `{ name: ${q(e.name)}, date: ${q(e.date)}, time: ${q(e.time)}, venue: ${q(e.venue)}, venueAddress: ${q(e.venueAddress)} }`
-  ).join(", ")}];
+  const events = [${(inv.events ?? []).map((e) =>
+  `{ name: ${q(e.name)},
+     date: ${q(e.date)},
+     time: ${q(e.time)},
+     venue: ${q(e.venue)},
+     venueAddress: ${q(e.venueAddress ?? "")} }`
+).join(", ")}];
   // ─────────────────────────────────────────────────────`;
 
     // Read template source and substitute
@@ -513,7 +517,7 @@ export default config;
     // ── Build ZIP ──
     const zipBuffer = buildZip(entries);
 
-    return new NextResponse(zipBuffer, {
+    return new NextResponse(Buffer.from(zipBuffer), {
       status: 200,
       headers: {
         "Content-Type": "application/zip",
