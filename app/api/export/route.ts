@@ -112,6 +112,21 @@ function src(relPath: string): string {
   catch { return ""; }
 }
 
+function q(value: unknown): string {
+  return JSON.stringify(value ?? "");
+}
+
+function esc(value: string | undefined | null): string {
+  return (value ?? "")
+    .replace(/\\/g, "\\\\")
+    .replace(/`/g, "\\`")
+    .replace(/\${/g, "\\${");
+}
+
+function imgArr(arr?: string[]): string {
+  return JSON.stringify(arr ?? []);
+}
+
 /* ─────────────────────────────────────────────────────────────
    GET /api/export?id=<invitationId>
 ───────────────────────────────────────────────────────────── */
@@ -124,6 +139,13 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     if (!invitation) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
     const inv = invitation;
+
+    const bf = inv.brideFamily ?? {
+      fatherName: "",
+      motherName: "",
+      members: [],
+    };
+
 
     const { brideName, groomName, slug, templateId } = invitation;
     const safeName = `${brideName}-${groomName}`.replace(/[^a-zA-Z0-9-]/g, "-").toLowerCase();
@@ -148,7 +170,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   const dressCode            = ${q(inv.dressCode)};
   const specialNote          = ${q(inv.specialNote)};
   const rsvpContact          = ${q(inv.rsvpContact)};
-  const rsvpDeadline         = ${q(inv.rsvpDeadline)};
+  co3nst rsvpDeadline         = ${q(inv.rsvpDeadline)};
   const rsvpWhatsapp         = ${q(inv.rsvpWhatsapp)};
   const story                = \`${esc(inv.story)}\`;
   const coupleHashtag        = ${q(inv.coupleHashtag)};
