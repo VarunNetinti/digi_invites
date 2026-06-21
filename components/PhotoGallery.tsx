@@ -2,16 +2,22 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 
 export type GalleryStyle =
-  | "slideshow"       // classic crossfade slideshow
-  | "slideshow-slide" // slide transition
-  | "slideshow-zoom"  // ken burns zoom
-  | "polaroid"        // stacked polaroids with rotation
-  | "collage-2"       // 2-photo side by side
-  | "collage-3"       // 1 big + 2 small
-  | "collage-4"       // 2x2 grid with gap
-  | "filmstrip"       // horizontal strip scrolling
-  | "masonry"         // pinterest-style
-  | "magazine";       // editorial 1 hero + strip
+  | "slideshow"
+  | "slideshow-slide"
+  | "slideshow-zoom"
+  | "collage-2"
+  | "collage-3"
+  | "collage-4"
+  | "polaroid"
+  | "filmstrip"
+  | "masonry"
+  | "magazine"
+  | "amoeba"
+  | "hexagon"
+  | "diamond"
+  | "circle-burst"
+  | "arch"
+  | "petal";
 
 export type Fillet =
   | "none"       // 0px
